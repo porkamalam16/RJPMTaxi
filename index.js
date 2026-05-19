@@ -1,102 +1,80 @@
-import React from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+// ============================
+// App.js
+// ============================
 
-import logo from "../component/icons/logo.jpeg";
+import React from "react";
 
-import "./topbar.css";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom";
 
-function Topbar() {
+/* BOOTSTRAP */
 
-  const navigate = useNavigate();
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
+
+/* COMPONENTS */
+
+import Topbar from "./component/topbar";
+
+import Home from "./component/home";
+
+import Car from "./component/car";
+
+import BookNow from "./component/booknow";
+
+import Footer from "./component/Footer";
+
+function App() {
 
   return (
 
-    <nav className="navbar navbar-expand-lg topbar-main shadow-lg">
+    <Router>
 
-      <div className="container-fluid">
+      {/* TOPBAR */}
 
-        {/* LEFT SIDE */}
+      <Topbar />
 
-        <div className="left-header d-flex align-items-center">
+      {/* PAGE CONTENT */}
 
-          <img
-            src={logo}
-            alt="logo"
-            className="topbar-logo"
+      <div style={{ paddingBottom: "80px" }}>
+
+        <Routes>
+
+          {/* HOME PAGE */}
+
+          <Route
+            path="/"
+            element={<Home />}
           />
 
-          <h2
-            className="brand-name"
-            onClick={() => navigate('/')}
-          >
-            RJPM Taxi
-          </h2>
+          {/* CAR PAGE */}
 
-        </div>
+          <Route
+            path="/cars"
+            element={<Car />}
+          />
 
-        {/* MOBILE BUTTON */}
+          {/* BOOK NOW PAGE */}
 
-        <button
-          className="navbar-toggler bg-white"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-        >
+          <Route
+            path="/booknow"
+            element={<BookNow />}
+          />
 
-          <span className="navbar-toggler-icon"></span>
-
-        </button>
-
-        {/* RIGHT SIDE */}
-
-        <div
-          className="collapse navbar-collapse justify-content-end"
-          id="navbarSupportedContent"
-        >
-
-          <ul className="navbar-nav gap-lg-4">
-
-            <li className="nav-item">
-
-              <NavLink
-                className="nav-link nav-custom"
-                to="/"
-              >
-                Home
-              </NavLink>
-
-            </li>
-
-            <li className="nav-item">
-
-              <NavLink
-                className="nav-link nav-custom"
-                to="/car"
-              >
-                Car
-              </NavLink>
-
-            </li>
-
-            <li className="nav-item">
-
-              <NavLink
-                className="nav-link nav-custom"
-                to="/faq">
-                FAQ
-              </NavLink>
-
-            </li>
-
-          </ul>
-
-        </div>
+        </Routes>
 
       </div>
 
-    </nav>
+      {/* FOOTER */}
+
+      <Footer />
+
+    </Router>
 
   );
 }
 
-export default Topbar;
+export default App;
