@@ -1,0 +1,75 @@
+.topbar-main{
+
+  background: linear-gradient(
+    to right,
+    orange,
+    #ff6600,
+    red
+  );
+
+  padding: 10px 30px;
+}
+
+/* LEFT SIDE */
+
+.left-header{
+  gap: 20px;
+}
+
+/* LOGO */
+
+.topbar-logo{
+
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* BRAND NAME */
+
+.brand-name{
+
+  color: white;
+  font-size: 38px;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 0;
+}
+
+/* NAV LINKS */
+
+.nav-custom{
+
+  color: white !important;
+  font-size: 20px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.nav-custom:hover{
+
+  color: yellow !important;
+  transform: scale(1.1);
+}
+
+/* MOBILE RESPONSIVE */
+
+@media screen and (max-width:768px){
+
+  .topbar-main{
+    padding: 10px;
+  }
+
+  .topbar-logo{
+
+    width: 80px;
+    height: 80px;
+  }
+
+  .brand-name{
+
+    font-size: 26px;
+  }
+
+}
